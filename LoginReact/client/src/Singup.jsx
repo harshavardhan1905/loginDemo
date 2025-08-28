@@ -12,7 +12,7 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3001/register', {name,email,password})
+    axios.post('http://localhost:3000/register', {name,email,password})
     .then(result => {
       if(result.status===200 && (name && email && password)){
         alert("Registration ok")

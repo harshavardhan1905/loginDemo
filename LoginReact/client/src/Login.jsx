@@ -13,7 +13,7 @@ const LoginForm = () => {
   useEffect(() => {
     const dataHandler = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/emp/list');
+        const response = await fetch('http://localhost:3000/api/emp/list');
         const d = await response.json();
         setData(d); // ✅ store fetched data
         console.log("fetched data:", d);
@@ -41,7 +41,7 @@ const LoginForm = () => {
     }
 
     try {
-      const result = await axios.post('http://localhost:3001/login', { email, password });
+      const result = await axios.post('http://localhost:3000/login', { email, password });
       console.log(result);
 
       if (result.data === "Success") {
@@ -104,7 +104,7 @@ const LoginForm = () => {
             </thead>
             <tbody>
               {data.map((item)=>(
-                <tr>
+                <tr key={item._id}>
                   <td>{item._id}</td>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
