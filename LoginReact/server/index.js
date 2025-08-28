@@ -1,6 +1,7 @@
 const express = require("express");
 //mango db import pack
 const mongoose = require("mongoose");
+require('dotenv').config();
 //used to provide secure req and res
 const cors = require("cors");
 //used for creates the new table and stores the values into that
@@ -12,7 +13,7 @@ app.use(express.json())
 app.use(cors())
 
 //mango db connection
-mongoose.connect("mongodb://127.0.0.1:27017/employee");
+mongoose.connect(process.env.MONGO_URL);
 
 //Getting data from the db
 app.post('/login', (req, res)=>{
