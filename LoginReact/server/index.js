@@ -14,6 +14,7 @@ app.use(cors())
 
 //mango db connection
 mongoose.connect(process.env.MONGO_URL);
+// console.log(mongoose.connect(process.env.MONGO_URL))
 const PORT = process.env.PORT || 3000
 //Getting data from the db
 app.post('/login', (req, res)=>{
