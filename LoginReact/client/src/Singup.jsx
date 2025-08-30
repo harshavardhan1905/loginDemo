@@ -12,7 +12,7 @@ const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://logindemo-9ff7.onrender.com/register', {name,email,password})
+    axios.post(import.meta.env.VITE_REGISTER_API, {name,email,password})
     .then(result => {
       if(result.status===200 && (name && email && password)){
         alert("Registration ok")

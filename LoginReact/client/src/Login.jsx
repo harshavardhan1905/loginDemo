@@ -13,7 +13,7 @@ const LoginForm = () => {
   useEffect(() => {
     const dataHandler = async () => {
       try {
-        const response = await fetch('https://logindemo-9ff7.onrender.com/api/emp/list');
+        const response = await fetch(import.meta.env.VITE_FETCH_API);
         const d = await response.json();
         setData(d); // ✅ store fetched data
         console.log("fetched data:", d);
@@ -41,7 +41,7 @@ const LoginForm = () => {
     }
 
     try {
-      const result = await axios.post('https://logindemo-9ff7.onrender.com/login', { email, password });
+      const result = await axios.post(import.meta.env.VITE_POST_API, { email, password });
       console.log(result);
 
       if (result.data === "Success") {
